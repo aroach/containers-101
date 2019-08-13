@@ -34,13 +34,23 @@ drwxr-xr-x    2 root     root            61 Jul 31 14:23 .ssh
 
 ## Part 1: Create a new "userland"
 
-1. `echo 'FROM ubuntu:15.04' >> Dockerfile`
-1. `docker build .`
-1. `docker run --name ubuntu --rm -i -t ubuntu:15.04 bash`
-1. You'll notice that we are at a new command prompt!
-1. Type `ls -la`
+1. Start by creating a `Dockerfile` that will inheret from an old version of Ubuntu
 
-Notice that you are now in an Ubuntu "userland"!
+`echo 'FROM ubuntu:15.04' >> Dockerfile`
+
+2. Build the Docker image 
+
+`docker build .`
+
+3. Let's run the Docker image as a container
+
+`docker run --name ubuntu --rm -i -t ubuntu:15.04 bash`
+
+4. You'll notice that we are at a new command prompt! It should look something like this. What stands out to you as different?
+
+`root@54f7f44ab67b:/#`
+
+5. Type `ls -la` to list all files
 
 ```
 $ docker run --name ubuntu --rm -i -t ubuntu:15.04 bash
@@ -69,6 +79,8 @@ drwxrwxrwt   2 root root    6 Jan 22  2016 tmp
 drwxr-xr-x   1 root root   18 Jan 26  2016 usr
 drwxr-xr-x   1 root root   17 Jan 26  2016 var
 ```
+
+Notice that you are now in an Ubuntu "userland"!
 
 ## Part 2: Package an application
 
