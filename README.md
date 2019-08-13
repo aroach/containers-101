@@ -72,10 +72,19 @@ drwxr-xr-x   1 root root   17 Jan 26  2016 var
 
 ## Part 2: Package an application
 
-1. `mkdir app && echo 'print("hello containers")' >> app/app.py`
-1. Create a new Dockerfile
-1. `touch Dockerfile`
-1. 
+1. Create an application directory, and create your application!
+
+`mkdir app && echo 'print("hello containers")' >> app/app.py`
+
+2. Create a new Dockerfile
+
+`touch Dockerfile`
+
+3. Click on the Editor button to enter an interactive text editor session.
+
+4. Open the `Dockerfile`
+
+5. Replace the contents of the `Dockerfile` with the following content
 
 ```
 #Dockerfile
@@ -86,7 +95,21 @@ WORKDIR /app
 CMD ["python", "app.py"]
 ```
 
-1. `docker build --tag=hello_python:1.0 .`
-1. `docker images`
-1. `docker run -it hello_python:1.0`
+6. Save the `Dockerfile`
+
+7. It's time to build your container!
+
+`docker build --tag=hello_python:1.0 .` (This might take a minute or two to complete.)
+
+8. View the Docker images that we've created
+
+`docker images`
+
+9. Run the docker container
+
+`docker run -it hello_python:1.0`
+
+You should see text in your terminal that we printed to standard out
+
+`hello containers`
 
