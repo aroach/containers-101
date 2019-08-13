@@ -4,7 +4,7 @@
 
 In your web browser:
 
-1. Create a [Docker account]()
+1. Create a [Docker account](https://hub.docker.com/signup)
 1. Open <a href="https://labs.play-with-docker.com">Play With Docker</a>
 1. Login using your Docker account
 1. Click on `Start`
@@ -32,7 +32,7 @@ drwxr-xr-x    2 root     root            61 Jul 31 14:23 .ssh
 -rw-rw-r--    1 root     root            85 Jan 17  2018 .vimrc
 ```
 
-## Create a Dockerfile
+## Part 1: Create a new "userland"
 
 1. `echo 'FROM ubuntu:15.04' >> Dockerfile`
 1. `docker build .`
@@ -69,4 +69,24 @@ drwxrwxrwt   2 root root    6 Jan 22  2016 tmp
 drwxr-xr-x   1 root root   18 Jan 26  2016 usr
 drwxr-xr-x   1 root root   17 Jan 26  2016 var
 ```
+
+## Part 2: Package an application
+
+1. `mkdir app && echo 'print("hello containers")' >> app/app.py`
+1. Create a new Dockerfile
+1. `touch Dockerfile`
+1. 
+
+```
+#Dockerfile
+FROM python
+RUN mkdir /app
+COPY ./app/app.py /app
+WORKDIR /app
+CMD ["python", "app.py"]
+```
+
+1. `docker build --tag=hello_python:1.0 .`
+1. `docker images`
+1. `docker run -it hello_python:1.0`
 
