@@ -4,8 +4,8 @@
 
 In your web browser:
 
-1. Create a [Docker account](https://hub.docker.com/signup)
-1. Open <a href="https://labs.play-with-docker.com">Play With Docker</a>
+1. Create a <a href="https://hub.docker.com/signup" target="_blank">Docker account</a>
+1. Open <a href="https://labs.play-with-docker.com" target="_blank">Play With Docker</a>
 1. Login using your Docker account
 1. Click on `Start`
 1. Now that a new session is running, click on `+ Add New Instance`
@@ -84,7 +84,7 @@ Notice that you are now in an Ubuntu "userland"!
 
 6. *Type `exit` followed by the Enter key*
 
-## Part 1: Summary
+## Summary: 'Create a new "userland"' 
 
 * Created a `Dockerfile` that inherits from the Ubuntu 15.04 release
 * Ran the Docker image
@@ -97,11 +97,11 @@ Notice that you are now in an Ubuntu "userland"!
 
 `mkdir app && echo 'print("hello containers")' >> app/app.py`
 
-2. Click on the Editor button to enter an interactive text editor session.
+2. Click on the Editor button to enter an interactive text editor session
 
-3. Open the `Dockerfile`
+3. Open the *Dockerfile* in the interactive text editor
 
-4. Replace the contents of the `Dockerfile` with the following content
+4. Replace the contents of the *Dockerfile* with the following content
 
 ```
 #Dockerfile
@@ -112,17 +112,19 @@ WORKDIR /app
 CMD ["python", "app.py"]
 ```
 
-5. Save the `Dockerfile`
+5. Save the *Dockerfile*
 
 6. It's time to build your container!
 
-`docker build --tag=hello_python:1.0 .` (This might take a minute or two to complete.)
+`docker build --tag=hello_python:1.0 .` 
+
+(This might take a minute or two to complete.)
 
 7. View the Docker images that we've created
 
 `docker images`
 
-8. Run the docker container
+8. Run the Docker container
 
 `docker run -it hello_python:1.0`
 
@@ -130,7 +132,7 @@ You should see text in your terminal that we printed to standard out
 
 `hello containers`
 
-## Part 2: Summary
+## Summary: 'Package an application'
 
 * Created a small Python application that prints "hello containers"
 * Updated the `Dockerfile` to include that application in the built image
