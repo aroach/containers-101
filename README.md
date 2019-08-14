@@ -82,21 +82,26 @@ drwxr-xr-x   1 root root   17 Jan 26  2016 var
 
 Notice that you are now in an Ubuntu "userland"!
 
+6. *Type `exit` followed by the Enter key*
+
+## Part 1: Summary
+
+* Created a `Dockerfile` that inherits from the Ubuntu 15.04 release
+* Ran the Docker image
+* Explored the new "userland"
+
+
 ## Part 2: Package an application
 
 1. Create an application directory, and create your application!
 
 `mkdir app && echo 'print("hello containers")' >> app/app.py`
 
-2. Create a new Dockerfile
+2. Click on the Editor button to enter an interactive text editor session.
 
-`touch Dockerfile`
+3. Open the `Dockerfile`
 
-3. Click on the Editor button to enter an interactive text editor session.
-
-4. Open the `Dockerfile`
-
-5. Replace the contents of the `Dockerfile` with the following content
+4. Replace the contents of the `Dockerfile` with the following content
 
 ```
 #Dockerfile
@@ -107,17 +112,17 @@ WORKDIR /app
 CMD ["python", "app.py"]
 ```
 
-6. Save the `Dockerfile`
+5. Save the `Dockerfile`
 
-7. It's time to build your container!
+6. It's time to build your container!
 
 `docker build --tag=hello_python:1.0 .` (This might take a minute or two to complete.)
 
-8. View the Docker images that we've created
+7. View the Docker images that we've created
 
 `docker images`
 
-9. Run the docker container
+8. Run the docker container
 
 `docker run -it hello_python:1.0`
 
@@ -125,3 +130,8 @@ You should see text in your terminal that we printed to standard out
 
 `hello containers`
 
+## Part 2: Summary
+
+* Created a small Python application that prints "hello containers"
+* Updated the `Dockerfile` to include that application in the built image
+* Ran the image as a container
